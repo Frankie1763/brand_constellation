@@ -118,9 +118,7 @@ def post_crawler(vm_rank, vm_total, USER, PASSWORD):
     init_output_file(POST_RECORD, ['user_idx', 'user', 'post_idx'])
     L = instaloader.Instaloader()
     L.login(USER, PASSWORD)  # (login)
-    L.interactive_login(USER)  # (ask password on terminal)
-    # L.load_session_from_file(USER)  # (load session created w/
-    #  `instaloader -l USERNAME`)
+
 
     # find previous downloading breakpoint
     if (os.path.isfile(POST_BR_PT)):
