@@ -3,9 +3,9 @@ NYUSH Research
 
 ------ AWS -----
 SSH
-Chmod 400  ~/.ssh/Kehang_key.pem
-ssh -i ~/.ssh/Kehang_key.pem ubuntu@18.163.192.62
-sftp -i ~/.ssh/Kehang_key.pem ubuntu@18.162.246.47
+Chmod 400 /Users/frankzhou/Personal/BA\ Intern/week04/aws\ set\ up/access_key.pem 
+ssh -i /Users/frankzhou/Personal/BA\ Intern/week04/aws\ set\ up/access_key.pem ubuntu@13.59.213.96
+Sftp -i /Users/frankzhou/Personal/BA\ Intern/week04/aws\ set\ up/access_key.pem ubuntu@13.59.213.96
 
 Setting up EC2
 <install necessary packages in EC2 while in the ssh session>
