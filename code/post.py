@@ -85,7 +85,9 @@ def download_post(L, user_idx, user, outputfile, logfile, brptfile, failfile, re
                     idx += 1
                     IDX_g = idx  # ! race condition might happen here
 
-                    write_log(str(user_idx) + ',' + str(user) + ',Success,' + str(idx), logfile)
+                    log = str(user_idx) + ',' + str(user) + ',Success,' + str(idx)
+                    print(log)
+                    write_log(log, logfile)
                     write_brpt(user_idx, user, idx, brptfile)
 
                 except (QueryReturnedBadRequestException, QueryReturnedForbiddenException, BadResponseException,
@@ -143,11 +145,13 @@ def post_crawler(vm_rank, vm_total, USER, PASSWORD):
             is_rank_job = ((mod == vm_rank) or (mod == 0 and vm_rank == vm_total))
 
             if not crawled and is_rank_job:
+                print("start new task:")
                 download_post(L, user_idx, user, POST_DATA, POST_LOG, POST_BR_PT, POST_FAIL, POST_RECORD, 0, START_DATE,
                               END_DATE)
             elif crawled and user_idx == user_idx_pre:
                 write_log(user + ',partially crawled', POST_LOG)
                 if is_rank_job:
+                    print("resume unfinished task:")
                     download_post(L, user_idx, user, POST_DATA, POST_LOG, POST_BR_PT, POST_FAIL, POST_RECORD, idx_pre)
                 crawled = False
 

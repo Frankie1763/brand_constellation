@@ -27,7 +27,7 @@ POST_FIELD  = ['user_idx','usr_name', 'index', 'time_collected', 'time_posted',
             'shortcode', 'url', 'typename', 
             'caption', 'cap_tags', 'cap_mentions', 'tagged_usrs', 
             'likes_num', 'comments_num',
-            'video_view_cnt', 'video_duration','location']
+            'video_view_cnt', 'video_duration', 'location']
 
 # PROFILE CRAWLER GLOBAL VAR #
 PROF_LOG    = f"{path}/log/log2.log"
