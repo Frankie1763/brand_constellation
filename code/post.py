@@ -100,10 +100,10 @@ def download_post(L, user_idx, user, outputfile, logfile, brptfile, failfile, re
         # record number of posts collected of this user
         write_record(user_idx, user, idx, recordfile)
 
-    except (TooManyRequestsException, ProxyInvalidException) as e:
-        # IP issues, raise the error to driver.py to rotate IP
-        general_exception_handler(user_idx, user, idx, e, logfile, failfile)
-        raise e
+    # except (TooManyRequestsException, ProxyInvalidException) as e:
+    #     # IP issues, raise the error to driver.py to rotate IP
+    #     general_exception_handler(user_idx, user, idx, e, logfile, failfile)
+    #     raise e
     except ConnectionException as e:
         ConnectionException_handler(user_idx, user, idx, e, logfile, failfile)  # exit the program
     except (ProfileNotExistsException, Exception) as e:
