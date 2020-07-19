@@ -61,9 +61,11 @@ def write_proxy_log(proxy,status,proxylogfile):
 ##############   HANDLER   ################
 def signal_handler_post(sig, frame):
     print('post.py: SIGINT RECEIVED')
-    print('Downloading Paused')
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    print(current_time+': Downloading Paused')
     # record the last successfully downloaded post
-    write_log("Downloading Paused",POST_LOG)
+    write_log(current_time+': Downloading Paused',POST_LOG)
     if (USR_g!=''):
         print("Paused at:"+USR_g+','+str(IDX_g))
         write_brpt(USR_IDX_g,USR_g,IDX_g,POST_BR_PT)
